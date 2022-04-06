@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const server = express();
 const fs = require("fs");
-const { json } = require("express/lib/response");
+
 
 const PORT = 2000;
 
@@ -18,11 +18,11 @@ server.get("/get-land", function(request, response){
         if(error) throw new error;
 
         result = JSON.parse(result);
+            
         if(result){
             response.send({
-                        message: "state retrieved...",
-                        data: result,
-                        code: "success"
+                        data: result
+                        
                     })
         }
     })
